@@ -1,5 +1,6 @@
 package HomeWork1;
 
+
 public class Task6 {
     public static String createPhoneNumber(int[] numbs) {
         StringBuilder sb = new StringBuilder();
