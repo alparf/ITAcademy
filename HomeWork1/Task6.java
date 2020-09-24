@@ -2,13 +2,13 @@ package HomeWork1;
 
 public class Task6 {
     public static String createPhoneNumber(int[] numbs) {
+        final String REG = "(\\d{3})(\\d{3})(\\d{4})";
+        final String REP = "($1) $2-$3";
         StringBuilder sb = new StringBuilder();
-        String reg = "(\\d{3})(\\d{3})(\\d{4})";
-        String replace = "($1) $2-$3";
         for(int numb: numbs) {
             sb.append(numb);
         }
-        return sb.toString().replaceFirst(reg, replace);
+        return sb.toString().replaceFirst(REG, REP);
     }
 
     public static void main(String[] args) {
