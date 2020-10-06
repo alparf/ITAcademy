@@ -29,6 +29,25 @@ public class Sort {
     public static double[] cocktailSort(double[] array) {
         int size = array.length;
         double[] sortedArray = Arrays.copyOf(array, size);
+        int leftIndex = 0;
+        int rightIndex = size - 1;
+        double buffer;
+        for (int i = leftIndex; i < rightIndex; i++) {
+            if(sortedArray[i] > sortedArray[i + 1]) {
+                buffer = sortedArray[i];
+                sortedArray[i] = sortedArray[i + 1];
+                sortedArray[i + 1] = buffer;
+            }
+        }
+        rightIndex--;
+        for (int i = rightIndex; i > leftIndex; i--) {
+            if(sortedArray[i] < sortedArray[i - 1]) {
+                buffer = sortedArray[i];
+                sortedArray[i] = sortedArray[i - 1];
+                sortedArray[i - 1] = buffer;
+            }
+        }
+        leftIndex++;
         return sortedArray;
     }
 }
