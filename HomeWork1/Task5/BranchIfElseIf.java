@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class BranchIfElseIf {
     public static void main(String[] args) {
-        final String VASYA = "Вася";
-        final String ANASTASIYA = "Анастасия";
+        final String VASYA = "ВАСЯ";
+        final String ANASTASIYA = "АНАСТАСИЯ";
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
         if(VASYA.equalsIgnoreCase(name)) {
