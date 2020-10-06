@@ -18,22 +18,22 @@ public class Task2 {
         int index = 0;
         final int LENGTH = numbs.length;
         do {
-            System.out.println(numbs[index]);
+            System.out.print(numbs[index] + "\t");
             index++;
         } while (index < LENGTH);
         System.out.println("\nPrint while:");
         index = 0;
         while (index < LENGTH) {
-            System.out.println(numbs[index]);
+            System.out.print(numbs[index] + "\t");
             index++;
         }
         System.out.println("\nPrint for:");
         for (int i = 0; i < LENGTH; i++) {
-            System.out.println(numbs[i]);
+            System.out.print(numbs[i] + "\t");
         }
         System.out.println("\nPrint foreach:");
         for (double numb: numbs) {
-            System.out.println(numb);
+            System.out.print(numb + "\t");
         }
     }
 
@@ -42,18 +42,18 @@ public class Task2 {
         final int LENGTH = numbs.length;
         int index = LENGTH - 1;
         do {
-            System.out.println(numbs[index]);
+            System.out.print(numbs[index] + "\t");
             index--;
         } while (index >= 0);
         System.out.println("\nPrint while:");
         index = LENGTH - 1;
         while (index >= 0) {
-            System.out.println(numbs[index]);
+            System.out.print(numbs[index] + "\t");
             index--;
         }
         System.out.println("\nPrint for:");
         for (int i = LENGTH - 1; i >= 0; i--) {
-            System.out.println(numbs[i]);
+            System.out.print(numbs[i] + "\t");
         }
         System.out.println("\nPrint foreach:");
         double[] revertNumbs = new double[LENGTH];
@@ -63,24 +63,29 @@ public class Task2 {
             index++;
         }
         for (double numb: revertNumbs) {
-            System.out.println(numb);
+            System.out.print(numb + "\t");
         }
     }
 
     public static void main(String[] args) {
+        final String NUMBER_FORMAT = " have to be number ";
         Scanner scanner = new Scanner(System.in);
         String numbsLine = formatLine(scanner.nextLine());
         String[] lineArray = numbsLine.split(SPACE);
         double[] numbs = new double[lineArray.length];
         for (int i = 0; i < lineArray.length; i++) {
-            numbs[i] = Double.valueOf(lineArray[i]);
+            try {
+                numbs[i] = Double.valueOf(lineArray[i]);
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage() + NUMBER_FORMAT);
+            }
         }
         printNumbs(numbs);
-        System.out.println("\nPrint in one:");
+        System.out.println("\n\nPrint in one:");
         for (int i = 0; i < numbs.length; i += 2) {
-            System.out.println(numbs[i]);
+            System.out.print(numbs[i]  + "\t");
         }
-        System.out.println("\nRevert");
+        System.out.println("\n\nRevert");
         printNumbsRevert(numbs);
     }
 }
