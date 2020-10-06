@@ -32,22 +32,24 @@ public class Sort {
         int leftIndex = 0;
         int rightIndex = size - 1;
         double buffer;
-        for (int i = leftIndex; i < rightIndex; i++) {
-            if(sortedArray[i] > sortedArray[i + 1]) {
-                buffer = sortedArray[i];
-                sortedArray[i] = sortedArray[i + 1];
-                sortedArray[i + 1] = buffer;
+        do {
+            for (int i = leftIndex; i < rightIndex; i++) {
+                if (sortedArray[i] > sortedArray[i + 1]) {
+                    buffer = sortedArray[i];
+                    sortedArray[i] = sortedArray[i + 1];
+                    sortedArray[i + 1] = buffer;
+                }
             }
-        }
-        rightIndex--;
-        for (int i = rightIndex; i > leftIndex; i--) {
-            if(sortedArray[i] < sortedArray[i - 1]) {
-                buffer = sortedArray[i];
-                sortedArray[i] = sortedArray[i - 1];
-                sortedArray[i - 1] = buffer;
+            rightIndex--;
+            for (int i = rightIndex; i > leftIndex; i--) {
+                if (sortedArray[i] < sortedArray[i - 1]) {
+                    buffer = sortedArray[i];
+                    sortedArray[i] = sortedArray[i - 1];
+                    sortedArray[i - 1] = buffer;
+                }
             }
-        }
-        leftIndex++;
+            leftIndex++;
+        } while (leftIndex <= rightIndex);
         return sortedArray;
     }
 }
