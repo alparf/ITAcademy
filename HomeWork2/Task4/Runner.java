@@ -19,6 +19,7 @@ public class Runner {
     }
 
     public static void main(String[] args) {
+        //Тест пузырьковой сортировки
         System.out.println("Bobble Sort: ");
         System.out.print(Arrays.toString(firstTest) + " => ");
         System.out.println(Arrays.toString(Sort.bubbleSort(firstTest)));
@@ -28,7 +29,7 @@ public class Runner {
         System.out.println(Arrays.toString(Sort.bubbleSort(thirdTest)));
         System.out.print(Arrays.toString(finalTest) + " => ");
         System.out.println(Arrays.toString(Sort.bubbleSort(finalTest)));
-
+        //Тест шейкерной сортировки
         System.out.println("Cocktail Sort: ");
         System.out.print(Arrays.toString(firstTest) + " => ");
         System.out.println(Arrays.toString(Sort.cocktailSort(firstTest)));
@@ -38,7 +39,7 @@ public class Runner {
         System.out.println(Arrays.toString(Sort.cocktailSort(thirdTest)));
         System.out.print(Arrays.toString(finalTest) + " => ");
         System.out.println(Arrays.toString(Sort.cocktailSort(finalTest)));
-
+        //Создание рандомного массива
         System.out.println("Random array:");
         int size = (int) ((Math.random() * 5) + 1);
         double[] randomArray = new double[size];
@@ -46,6 +47,7 @@ public class Runner {
             randomArray[i] = Math.random() * 100;
         }
         System.out.println(Arrays.toString(randomArray));
+        //Ввод масива из консоли
         System.out.println("Input array elements:");
         final String SPACE = " ";
         Scanner scanner = new Scanner(System.in);
