@@ -1,8 +1,8 @@
-package HomeWork2.Task2;
+package HomeWork2;
 
 import java.util.Scanner;
 
-public class Task21 {
+public class Task2 {
     private static final String SPACE = " ";
     private static final String EXTRA_SPACE = "  ";
 
