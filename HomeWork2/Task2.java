@@ -8,8 +8,7 @@ public class Task2 {
 
     private static String formatLine(String line) {
         while (line.contains(EXTRA_SPACE)) {
-            String replaceLine = line.replace(EXTRA_SPACE, SPACE);
-            line = replaceLine;
+            line = line.replace(EXTRA_SPACE, SPACE);
         }
         return line.trim();
     }
