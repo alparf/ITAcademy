@@ -41,7 +41,7 @@ public class Runner {
         System.out.println(Arrays.toString(Sort.cocktailSort(finalTest)));
         //Создание рандомного массива
         System.out.println("Random array:");
-        int size = (int) ((Math.random() * 5) + 1);
+        int size = (int) ((Math.random() * 3) + 3);
         double[] randomArray = new double[size];
         for (int i = 0; i < size; i++) {
             randomArray[i] = Math.random() * 100;
