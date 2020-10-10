@@ -25,7 +25,7 @@ public class CalculatorWithOperator {
      * @return the value of the first argument raised to the power of the second argument
      */
 
-    public double raisedTo(double a, int b) {
+    public double raiseTo(double a, int b) {
         if (b == 0) {
             return 1;
         } else {
@@ -36,12 +36,30 @@ public class CalculatorWithOperator {
         return b > 0 ? a : 1 / a;
     }
 
+    /**
+     *
+     * @param a any number
+     * @return the absolute value of "a"
+     */
+
     public double absolute(double a) {
         return a < 0 ? -a : a;
     }
 
+    /**
+     *
+     * @param a any number
+     * @return square root of "a" or NaN if a < 0
+     */
+
     public double squareRoot(double a) {
-        final double PRECISION = 0.001;
+        if (a < 0) {
+            return Double.NaN;
+        }
+        if (a == 0) {
+            return 0;
+        }
+        final double PRECISION = 0.0001;
         double result = 1;
         double buffer = (result + a / result) / 2;
         while (this.absolute(result - buffer) > PRECISION) {
