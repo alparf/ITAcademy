@@ -7,7 +7,5 @@ public class CalculatorWithOperatorMain {
                 calculator.summation(4.1, calculator.multiplication(15, 7)),
                 calculator.raiseTo(calculator.division(28, 5),2));
         System.out.println(result);
-        System.out.println(calculator.squareRoot(-4));
-        System.out.println(calculator.squareRoot(0));
     }
 }

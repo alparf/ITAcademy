@@ -66,6 +66,7 @@ public class CalculatorWithOperator {
             result = buffer;
             buffer = (result + a / result) / 2;
         }
-        return result;
+        int integerResult = (int) result;
+        return integerResult * integerResult == a ? integerResult : result;
     }
 }
