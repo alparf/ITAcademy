@@ -1,6 +1,6 @@
 package HomeWork3;
 
-public class CalculatorWithOperator extends AbstractCalculator {
+public class CalculatorWithOperator {
 
     public double summation(double a, double b) {
         return a + b;
