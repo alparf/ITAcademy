@@ -1,6 +1,6 @@
 package HomeWork3;
 
-public class CalculatorWithMathCopy {
+public class CalculatorWithMathCopy extends AbstractCalculator {
 
     public double summation(double a, double b) {
         return a + b;
@@ -22,7 +22,7 @@ public class CalculatorWithMathCopy {
         return Math.pow(a, b);
     }
 
-    public double absolution(double a) {
+    public double absolute(double a) {
         return Math.abs(a);
     }
 
