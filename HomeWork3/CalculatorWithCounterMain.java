@@ -6,7 +6,7 @@ public class CalculatorWithCounterMain {
         double result = calculator.summation(
                 calculator.summation(4.1, calculator.multiplication(15, 7)),
                 calculator.raiseTo(calculator.division(28, 5),2));
-        System.out.println(result);
-        System.out.println(calculator.getCountOperation());
+        System.out.println("value: " + result);
+        System.out.println("count operation: " + calculator.getCountOperation());
     }
 }
