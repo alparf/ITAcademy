@@ -11,6 +11,23 @@ public class CalculatorWithMemoryDecorator implements ICalculator  {
         this.calculator = calculator;
     }
 
+    public double getLastValue() {
+        return lastValue;
+    }
+
+    public void setLastValue(double lastValue) {
+        this.lastValue = lastValue;
+    }
+
+    public double getValueInMemory() {
+        return valueInMemory;
+    }
+
+    public void setValueInMemory() {
+        this.valueInMemory = this.lastValue;
+        this.lastValue = 0;
+    }
+
     @Override
     public double sum(double a, double b) {
         this.lastValue = this.calculator.sum(a, b);

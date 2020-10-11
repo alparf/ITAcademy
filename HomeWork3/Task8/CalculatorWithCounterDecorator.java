@@ -14,6 +14,10 @@ public class CalculatorWithCounterDecorator implements ICalculator {
         return calculator;
     }
 
+    public long getCountOperation() {
+        return countOperation;
+    }
+
     @Override
     public double sum(double a, double b) {
         this.countOperation++;
