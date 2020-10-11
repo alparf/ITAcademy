@@ -2,23 +2,23 @@ package HomeWork3;
 
 public class CalculatorWithCounter {
     private long countOperation;
-    private CalculatorWithOperator userCalculator;
+    private CalculatorWithOperator operatorCalculator;
     private CalculatorWithMathCopy mathCalculator;
-    private boolean isUserInit;
+    private boolean isWithOperatorLock;
 
     public CalculatorWithCounter(CalculatorWithOperator calculator) {
-        this.userCalculator = calculator;
-        this.isUserInit = true;
+        this.operatorCalculator = calculator;
+        this.isWithOperatorLock = false;
     }
 
     public CalculatorWithCounter(CalculatorWithMathExtends calculator) {
-        this.userCalculator = calculator;
-        this.isUserInit = true;
+        this.operatorCalculator = calculator;
+        this.isWithOperatorLock = false;
     }
 
     public CalculatorWithCounter(CalculatorWithMathCopy calculator) {
         this.mathCalculator = calculator;
-        this.isUserInit = false;
+        this.isWithOperatorLock = true;
     }
 
     public long getCountOperation() {
@@ -27,56 +27,56 @@ public class CalculatorWithCounter {
 
     public double summation(double a, double b) {
         this.countOperation++;
-        if (isUserInit) {
-            return userCalculator.summation(a, b);
+        if (!isWithOperatorLock) {
+            return operatorCalculator.summation(a, b);
         }
         return mathCalculator.summation(a, b);
     }
 
     public double subtraction(double a, double b) {
         this.countOperation++;
-        if (isUserInit) {
-            return userCalculator.subtraction(a, b);
+        if (!isWithOperatorLock) {
+            return operatorCalculator.subtraction(a, b);
         }
         return mathCalculator.subtraction(a, b);
     }
 
     public double multiplication(double a, double b) {
         this.countOperation++;
-        if (isUserInit) {
-            return userCalculator.multiplication(a, b);
+        if (!isWithOperatorLock) {
+            return operatorCalculator.multiplication(a, b);
         }
         return mathCalculator.multiplication(a, b);
     }
 
     public double division(double a, double b) {
         this.countOperation++;
-        if (isUserInit) {
-            return userCalculator.division(a, b);
+        if (!isWithOperatorLock) {
+            return operatorCalculator.division(a, b);
         }
         return mathCalculator.division(a, b);
     }
 
     public double raiseTo(double a, int b) {
         this.countOperation++;
-        if (isUserInit) {
-            return userCalculator.raiseTo(a, b);
+        if (!isWithOperatorLock) {
+            return operatorCalculator.raiseTo(a, b);
         }
         return mathCalculator.raiseTo(a, b);
     }
 
     public double absolute(double a) {
         this.countOperation++;
-        if (isUserInit) {
-            return userCalculator.absolute(a);
+        if (!isWithOperatorLock) {
+            return operatorCalculator.absolute(a);
         }
         return mathCalculator.absolute(a);
     }
 
     public double squareRoot(double a) {
         this.countOperation++;
-        if (isUserInit) {
-            return userCalculator.squareRoot(a);
+        if (!isWithOperatorLock) {
+            return operatorCalculator.squareRoot(a);
         }
         return mathCalculator.squareRoot(a);
     }
