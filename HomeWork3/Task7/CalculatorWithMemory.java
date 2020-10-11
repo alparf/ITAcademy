@@ -27,7 +27,6 @@ public class CalculatorWithMemory {
 
     public void setValueInMemory() {
         this.valueInMemory = this.lastValue;
-        this.lastValue = 0;
     }
 
     public void sum(double value) {
