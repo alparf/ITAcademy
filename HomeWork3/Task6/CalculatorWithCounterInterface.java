@@ -1,48 +1,49 @@
-package HomeWork3;
+package HomeWork3.Task6;
 
-public class CalculatorWithCounterDecorator implements ICalculator {
+public class CalculatorWithCounterInterface {
+    private long countOperation;
     private ICalculator calculator;
 
-    public CalculatorWithCounterDecorator(ICalculator calculator) {
+    public CalculatorWithCounterInterface(ICalculator calculator) {
         this.calculator = calculator;
     }
 
-    public ICalculator getCalculator() {
-        return calculator;
+    public long getCountOperation() {
+        return countOperation;
     }
 
-    @Override
     public double sum(double a, double b) {
+        this.countOperation++;
         return this.calculator.sum(a, b);
     }
 
-    @Override
     public double sub(double a, double b) {
-        return this.calculator.sub(a, b);
+        this.countOperation++;
+        return  this.calculator.sub(a, b);
     }
 
-    @Override
     public double multi(double a, double b) {
-        return this.calculator.multi(a, b);
+        this.countOperation++;
+        return calculator.multi(a, b);
     }
 
-    @Override
     public double div(double a, double b) {
-        return this.calculator.div(a, b);
+        this.countOperation++;
+        return calculator.div(a, b);
     }
 
-    @Override
     public double pow(double a, int b) {
+        this.countOperation++;
         return this.calculator.pow(a, b);
     }
 
-    @Override
     public double abs(double a) {
+        this.countOperation++;
         return this.calculator.abs(a);
     }
 
-    @Override
     public double sqr(double a) {
+        this.countOperation++;
         return this.calculator.sqr(a);
     }
 }

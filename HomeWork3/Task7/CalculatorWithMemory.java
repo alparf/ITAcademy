@@ -1,4 +1,6 @@
-package HomeWork3;
+package HomeWork3.Task7;
+
+import HomeWork3.Task6.ICalculator;
 
 public class CalculatorWithMemory {
     private ICalculator calculator;

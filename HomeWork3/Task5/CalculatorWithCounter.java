@@ -1,6 +1,10 @@
-package HomeWork3;
+package HomeWork3.Task5;
 
-import static HomeWork3.CalculatorType.OPERATOR;
+import HomeWork3.Task3.CalculatorWithMathCopy;
+import HomeWork3.Task4.CalculatorWithMathExtends;
+import HomeWork3.Task2.CalculatorWithOperator;
+
+import static HomeWork3.Task5.CalculatorType.OPERATOR;
 
 public class CalculatorWithCounter {
     private long countOperation;

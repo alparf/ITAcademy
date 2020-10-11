@@ -1,4 +1,7 @@
-package HomeWork3;
+package HomeWork3.Task8;
+
+import HomeWork3.Task4.CalculatorWithMathExtends;
+import HomeWork3.Task6.ICalculator;
 
 public class CalculatorWithDecoratorMain {
 

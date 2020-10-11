@@ -1,4 +1,6 @@
-package HomeWork3;
+package HomeWork3.Task7;
+
+import HomeWork3.Task2.CalculatorWithOperator;
 
 public class CalculatorWithMemoryMain {
 

@@ -1,9 +1,11 @@
-package HomeWork3;
+package HomeWork3.Task8;
 
-public class CalculatorWithMemoryDecorator implements ICalculator {
+import HomeWork3.Task6.ICalculator;
+
+public class CalculatorWithCounterDecorator implements ICalculator {
     private ICalculator calculator;
 
-    public CalculatorWithMemoryDecorator(ICalculator calculator) {
+    public CalculatorWithCounterDecorator(ICalculator calculator) {
         this.calculator = calculator;
     }
 
@@ -13,36 +15,36 @@ public class CalculatorWithMemoryDecorator implements ICalculator {
 
     @Override
     public double sum(double a, double b) {
-       return this.sum(a, b);
+        return this.calculator.sum(a, b);
     }
 
     @Override
     public double sub(double a, double b) {
-        return this.sub(a, b);
+        return this.calculator.sub(a, b);
     }
 
     @Override
     public double multi(double a, double b) {
-        return this.multi(a, b);
+        return this.calculator.multi(a, b);
     }
 
     @Override
     public double div(double a, double b) {
-        return this.div(a, b);
+        return this.calculator.div(a, b);
     }
 
     @Override
     public double pow(double a, int b) {
-        return this.pow(a, b);
+        return this.calculator.pow(a, b);
     }
 
     @Override
     public double abs(double a) {
-        return this.abs(a);
+        return this.calculator.abs(a);
     }
 
     @Override
     public double sqr(double a) {
-        return this.sqr(a);
+        return this.calculator.sqr(a);
     }
 }

@@ -1,4 +1,6 @@
-package HomeWork3;
+package HomeWork3.Task5;
+
+import HomeWork3.Task4.CalculatorWithMathExtends;
 
 public class CalculatorWithCounterMain {
 
