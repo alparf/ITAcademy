@@ -2,19 +2,19 @@ package HomeWork3;
 
 public class CalculatorWithOperator implements ICalculator {
 
-    public double summation(double a, double b) {
+    public double sum(double a, double b) {
         return a + b;
     }
 
-    public double subtraction(double a, double b) {
+    public double sub(double a, double b) {
         return a - b;
     }
 
-    public double multiplication(double a, double b) {
+    public double multi(double a, double b) {
         return a * b;
     }
 
-    public double division(double a, double b) {
+    public double div(double a, double b) {
         return a / b;
     }
 
@@ -25,11 +25,11 @@ public class CalculatorWithOperator implements ICalculator {
      * @return the value of the first argument raised to the power of the second argument
      */
 
-    public double raiseTo(double a, int b) {
+    public double pow(double a, int b) {
         if (b == 0) {
             return 1;
         } else {
-            for (int i = 1; i < this.absolute(b); i++) {
+            for (int i = 1; i < this.abs(b); i++) {
                     a *= a;
             }
         }
@@ -42,7 +42,7 @@ public class CalculatorWithOperator implements ICalculator {
      * @return the absolute value of "a"
      */
 
-    public double absolute(double a) {
+    public double abs(double a) {
         return a < 0 ? -a : a;
     }
 
@@ -52,7 +52,7 @@ public class CalculatorWithOperator implements ICalculator {
      * @return square root of "a" or NaN if a < 0
      */
 
-    public double squareRoot(double a) {
+    public double sqr(double a) {
         if (a < 0) {
             return Double.NaN;
         }
@@ -62,7 +62,7 @@ public class CalculatorWithOperator implements ICalculator {
         final double PRECISION = 0.0001;
         double result = 1;
         double buffer = (result + a / result) / 2;
-        while (this.absolute(result - buffer) > PRECISION) {
+        while (this.abs(result - buffer) > PRECISION) {
             result = buffer;
             buffer = (result + a / result) / 2;
         }

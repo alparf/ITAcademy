@@ -2,31 +2,31 @@ package HomeWork3;
 
 public class CalculatorWithMathCopy implements ICalculator {
 
-    public double summation(double a, double b) {
+    public double sum(double a, double b) {
         return a + b;
     }
 
-    public double subtraction(double a, double b) {
+    public double sub(double a, double b) {
         return a - b;
     }
 
-    public double multiplication(double a, double b) {
+    public double multi(double a, double b) {
         return a * b;
     }
 
-    public double division(double a, double b) {
+    public double div(double a, double b) {
         return a / b;
     }
 
-    public double raiseTo(double a, int b) {
+    public double pow(double a, int b) {
         return Math.pow(a, b);
     }
 
-    public double absolute(double a) {
+    public double abs(double a) {
         return Math.abs(a);
     }
 
-    public double squareRoot(double a) {
+    public double sqr(double a) {
         return Math.sqrt(a);
     }
 }

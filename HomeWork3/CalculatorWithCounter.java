@@ -27,59 +27,59 @@ public class CalculatorWithCounter {
         return countOperation;
     }
 
-    public double summation(double a, double b) {
+    public double sum(double a, double b) {
         this.countOperation++;
         if (this.calculatorType == OPERATOR) {
-            return this.operatorCalculator.summation(a, b);
+            return this.operatorCalculator.sum(a, b);
         }
-        return this.mathCalculator.summation(a, b);
+        return this.mathCalculator.sum(a, b);
     }
 
-    public double subtraction(double a, double b) {
+    public double sub(double a, double b) {
         this.countOperation++;
         if (this.calculatorType == OPERATOR) {
-            return this.operatorCalculator.subtraction(a, b);
+            return this.operatorCalculator.sub(a, b);
         }
-        return this.mathCalculator.subtraction(a, b);
+        return this.mathCalculator.sub(a, b);
     }
 
-    public double multiplication(double a, double b) {
+    public double multi(double a, double b) {
         this.countOperation++;
         if (this.calculatorType == OPERATOR) {
-            return this.operatorCalculator.multiplication(a, b);
+            return this.operatorCalculator.multi(a, b);
         }
-        return this.mathCalculator.multiplication(a, b);
+        return this.mathCalculator.multi(a, b);
     }
 
-    public double division(double a, double b) {
+    public double div(double a, double b) {
         this.countOperation++;
         if (this.calculatorType == OPERATOR) {
-            return this.operatorCalculator.division(a, b);
+            return this.operatorCalculator.div(a, b);
         }
-        return this.mathCalculator.division(a, b);
+        return this.mathCalculator.div(a, b);
     }
 
-    public double raiseTo(double a, int b) {
+    public double pow(double a, int b) {
         this.countOperation++;
         if (this.calculatorType == OPERATOR) {
-            return this.operatorCalculator.raiseTo(a, b);
+            return this.operatorCalculator.pow(a, b);
         }
-        return this.mathCalculator.raiseTo(a, b);
+        return this.mathCalculator.pow(a, b);
     }
 
-    public double absolute(double a) {
+    public double abs(double a) {
         this.countOperation++;
         if (this.calculatorType == OPERATOR) {
-            return this.operatorCalculator.absolute(a);
+            return this.operatorCalculator.abs(a);
         }
-        return this.mathCalculator.absolute(a);
+        return this.mathCalculator.abs(a);
     }
 
-    public double squareRoot(double a) {
+    public double sqr(double a) {
         this.countOperation++;
         if (this.calculatorType == OPERATOR) {
-            return this.operatorCalculator.squareRoot(a);
+            return this.operatorCalculator.sqr(a);
         }
-        return this.mathCalculator.squareRoot(a);
+        return this.mathCalculator.sqr(a);
     }
 }
