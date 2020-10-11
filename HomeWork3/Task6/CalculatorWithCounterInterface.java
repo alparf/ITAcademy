@@ -19,7 +19,7 @@ public class CalculatorWithCounterInterface {
 
     public double sub(double a, double b) {
         this.countOperation++;
-        return  this.calculator.sub(a, b);
+        return  this.calculator.subtract(a, b);
     }
 
     public double multi(double a, double b) {

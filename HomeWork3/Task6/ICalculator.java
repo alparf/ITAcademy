@@ -4,7 +4,7 @@ public interface ICalculator {
 
     double sum(double a, double b);
 
-    double sub(double a, double b);
+    double subtract(double a, double b);
 
     double multi(double a, double b);
 

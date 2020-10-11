@@ -8,7 +8,7 @@ public class CalculatorWithOperator implements ICalculator {
         return a + b;
     }
 
-    public double sub(double a, double b) {
+    public double subtract(double a, double b) {
         return a - b;
     }
 

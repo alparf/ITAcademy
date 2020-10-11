@@ -35,7 +35,7 @@ public class CalculatorWithMemory {
     }
 
     public void subtraction(double value) {
-        this.lastValue = this.calculator.sub(this.lastValue, value);
+        this.lastValue = this.calculator.subtract(this.lastValue, value);
     }
 
     public void multi(double value) {

@@ -42,9 +42,9 @@ public class CalculatorWithCounter {
     public double sub(double a, double b) {
         this.countOperation++;
         if (this.calculatorType == OPERATOR) {
-            return this.operatorCalculator.sub(a, b);
+            return this.operatorCalculator.subtract(a, b);
         }
-        return this.mathCalculator.sub(a, b);
+        return this.mathCalculator.subtract(a, b);
     }
 
     public double multi(double a, double b) {
