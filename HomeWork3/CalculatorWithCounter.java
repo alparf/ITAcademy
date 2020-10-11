@@ -1,5 +1,7 @@
 package HomeWork3;
 
+import static HomeWork3.CalculatorType.OPERATOR;
+
 public class CalculatorWithCounter {
     private long countOperation;
     private CalculatorWithOperator operatorCalculator;
@@ -8,12 +10,12 @@ public class CalculatorWithCounter {
 
     public CalculatorWithCounter(CalculatorWithOperator calculator) {
         this.operatorCalculator = calculator;
-        this.calculatorType = CalculatorType.OPERATOR;
+        this.calculatorType = OPERATOR;
     }
 
     public CalculatorWithCounter(CalculatorWithMathExtends calculator) {
         this.operatorCalculator = calculator;
-        this.calculatorType = CalculatorType.OPERATOR;
+        this.calculatorType = OPERATOR;
     }
 
     public CalculatorWithCounter(CalculatorWithMathCopy calculator) {
@@ -25,157 +27,59 @@ public class CalculatorWithCounter {
         return countOperation;
     }
 
-    /**
-     *
-     * @param a first argument
-     * @param b second argument
-     * @return the sum of first and second argument or NaN
-     */
-
     public double summation(double a, double b) {
         this.countOperation++;
-        switch (this.calculatorType) {
-            case OPERATOR: {
-                return operatorCalculator.summation(a, b);
-            }
-            case MATH: {
-                return mathCalculator.summation(a, b);
-            }
-            default: {
-                return Double.NaN;
-            }
+        if (this.calculatorType == OPERATOR) {
+            return this.operatorCalculator.summation(a, b);
         }
+        return this.mathCalculator.summation(a, b);
     }
-
-    /**
-     *
-     * @param a first argument
-     * @param b second argument
-     * @return the difference of first and second argument or NaN
-     */
 
     public double subtraction(double a, double b) {
         this.countOperation++;
-        switch (this.calculatorType) {
-            case OPERATOR: {
-                return operatorCalculator.subtraction(a, b);
-            }
-            case MATH: {
-                return mathCalculator.subtraction(a, b);
-            }
-            default: {
-                return Double.NaN;
-            }
+        if (this.calculatorType == OPERATOR) {
+            return this.operatorCalculator.subtraction(a, b);
         }
+        return this.mathCalculator.subtraction(a, b);
     }
-
-    /**
-     *
-     * @param a first argument
-     * @param b second argument
-     * @return the multiplication result of first and second argument or NaN
-     */
 
     public double multiplication(double a, double b) {
         this.countOperation++;
-        switch (this.calculatorType) {
-            case OPERATOR: {
-                return operatorCalculator.multiplication(a, b);
-            }
-            case MATH: {
-                return mathCalculator.multiplication(a, b);
-            }
-            default: {
-                return Double.NaN;
-            }
+        if (this.calculatorType == OPERATOR) {
+            return this.operatorCalculator.multiplication(a, b);
         }
+        return this.mathCalculator.multiplication(a, b);
     }
-
-    /**
-     *
-     * @param a first argument
-     * @param b second argument
-     * @return the division result of first and second argument or NaN
-     */
 
     public double division(double a, double b) {
         this.countOperation++;
-        switch (this.calculatorType) {
-            case OPERATOR: {
-                return operatorCalculator.division(a, b);
-            }
-            case MATH: {
-                return mathCalculator.division(a, b);
-            }
-            default: {
-                return Double.NaN;
-            }
+        if (this.calculatorType == OPERATOR) {
+            return this.operatorCalculator.division(a, b);
         }
+        return this.mathCalculator.division(a, b);
     }
-
-    /**
-     *
-     * @param a first argument
-     * @param b second argument
-     * @return the value of the first argument raised
-     * to the power of the second argument or NaN
-     */
 
     public double raiseTo(double a, int b) {
         this.countOperation++;
-        switch (this.calculatorType) {
-            case OPERATOR: {
-                return operatorCalculator.raiseTo(a, b);
-            }
-            case MATH: {
-                return mathCalculator.raiseTo(a, b);
-            }
-            default: {
-                return Double.NaN;
-            }
+        if (this.calculatorType == OPERATOR) {
+            return this.operatorCalculator.raiseTo(a, b);
         }
+        return this.mathCalculator.raiseTo(a, b);
     }
-
-    /**
-     *
-     * @param a argument
-     * @return the absolution value of argument or NaN
-     */
 
     public double absolute(double a) {
         this.countOperation++;
-        switch (this.calculatorType) {
-            case OPERATOR: {
-                return operatorCalculator.absolute(a);
-            }
-            case MATH: {
-                return mathCalculator.absolute(a);
-            }
-            default: {
-                return Double.NaN;
-            }
+        if (this.calculatorType == OPERATOR) {
+            return this.operatorCalculator.absolute(a);
         }
+        return this.mathCalculator.absolute(a);
     }
-
-    /**
-     *
-     * @param a argument
-     * @return the square root of argument or NaN
-     */
 
     public double squareRoot(double a) {
         this.countOperation++;
-        switch (this.calculatorType) {
-            case OPERATOR: {
-                return operatorCalculator.squareRoot(a);
-            }
-            case MATH: {
-                return mathCalculator.squareRoot(a);
-            }
-            default: {
-                return Double.NaN;
-            }
+        if (this.calculatorType == OPERATOR) {
+            return this.operatorCalculator.squareRoot(a);
         }
+        return this.mathCalculator.squareRoot(a);
     }
-
 }

@@ -1,6 +1,6 @@
 package HomeWork3;
 
-public class CalculatorWithMathCopy {
+public class CalculatorWithMathCopy implements ICalculator {
 
     public double summation(double a, double b) {
         return a + b;
