@@ -2,7 +2,7 @@ package HomeWork3.Task6;
 
 public class CalculatorWithCounterInterface {
     private long countOperation;
-    private ICalculator calculator;
+    private final ICalculator calculator;
 
     public CalculatorWithCounterInterface(ICalculator calculator) {
         this.calculator = calculator;
