@@ -51,14 +51,6 @@ public class DataContainer<T> {
         return this.size;
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
-
-    public T[] getData() {
-        return data;
-    }
-
     @Override
     public String toString() {
         boolean isPut = false;
