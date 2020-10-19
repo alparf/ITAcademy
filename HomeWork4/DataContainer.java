@@ -9,8 +9,16 @@ public class DataContainer<T> {
 
     private void increaseCapacity() {
         int newCapacity = this.size * 2;
-        T[] newArray = Arrays.copyOf(this.data, newCapacity);
-        this.data = newArray;
+        if (newCapacity == 0) {
+            newCapacity = 10;
+        }
+        this.data = Arrays.copyOf(this.data, newCapacity);
+        this.capacity = newCapacity;
+    }
+
+    private void decreaseCapacity() {
+        int newCapacity = this.capacity / 2;
+        this.data = Arrays.copyOf(this.data, newCapacity);
         this.capacity = newCapacity;
     }
 
@@ -47,9 +55,42 @@ public class DataContainer<T> {
         return this.size;
     }
 
+    public T get(int index) {
+        if(index < this.size) {
+            return data[index];
+        }
+        return null;
+    }
+
     public int getSize() {
         return this.size;
     }
+
+    public T[] getItems() {
+        return this.data;
+    }
+
+    public boolean delete(int index) {
+        if(index < this.size) {
+            if((this.capacity / this.size > 4.0) && this.capacity > 20) {
+                this.decreaseCapacity();
+            }
+            T[] newArray = (T[]) new Object[this.capacity];
+            for(int i = 0; i < this.size; i++) {
+                if(i < index) {
+                    newArray[i] = this.data[i];
+                }
+                if(i > index) {
+                    newArray[i - 1] = this.data[i];
+                }
+            }
+            this.data = newArray;
+            this.size = this.size - 1;
+            return true;
+        }
+        return false;
+    }
+
 
     @Override
     public String toString() {
