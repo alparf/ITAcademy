@@ -17,5 +17,6 @@ public class Runner {
         System.out.println(test);
         System.out.println("add(777) index: " + test.add(777));
         System.out.println(test);
+        //
     }
 }
