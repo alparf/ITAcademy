@@ -1,8 +1,10 @@
 package HomeWork4;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class DataContainer<T> {
+    private final int DEFAULT_SIZE = 10;
     private T[] data;
     private int size;
     private int capacity;
@@ -10,7 +12,7 @@ public class DataContainer<T> {
     private void increaseCapacity() {
         int newCapacity = this.size * 2;
         if (newCapacity == 0) {
-            newCapacity = 10;
+            newCapacity = this.DEFAULT_SIZE;
         }
         this.data = Arrays.copyOf(this.data, newCapacity);
         this.capacity = newCapacity;
@@ -31,12 +33,25 @@ public class DataContainer<T> {
         return -1;
     }
 
+    public DataContainer() {
+        this.data = (T[]) new Object[this.DEFAULT_SIZE];
+        this.size = 0;
+        this.capacity = 10;
+    }
+
     public DataContainer(T[] data) {
         this.data = data;
         if(null != data) {
             this.size = data.length;
             this.capacity = this.size;
         }
+    }
+
+    public DataContainer(T item) {
+        this.data = (T[]) Array.newInstance(item.getClass(), this.DEFAULT_SIZE);
+        this.data[0] = item;
+        this.size = 1;
+        this.capacity = this.DEFAULT_SIZE;
     }
 
     public int add(T item) {
@@ -72,7 +87,8 @@ public class DataContainer<T> {
 
     public boolean delete(int index) {
         if(index < this.size) {
-            if((this.capacity / this.size > 4.0) && this.capacity > 20) {
+            if((this.capacity / this.size > 4.0)
+                    && (this.capacity > (this.DEFAULT_SIZE * 2))) {
                 this.decreaseCapacity();
             }
             T[] newArray = (T[]) new Object[this.capacity];
