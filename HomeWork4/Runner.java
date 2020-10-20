@@ -88,6 +88,9 @@ public class Runner {
             }
         });
         System.out.println(exampleStatic);
+        example = new DataContainer<>(null);
+        example.add(2);
+        System.out.println(example);
     }
 }
 
