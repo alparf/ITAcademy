@@ -11,6 +11,20 @@ public class DataContainer<T> implements Iterable<T> {
     private int size;
     private int capacity;
 
+    private class Itr implements Iterator<T> {
+        private int marker;
+
+        @Override
+        public boolean hasNext() {
+            return marker != size ? true : false;
+        }
+
+        @Override
+        public T next() {
+            return data[marker++];
+        }
+    }
+
     /**
      *
      * @param container DataContainer<C>
@@ -248,30 +262,13 @@ public class DataContainer<T> implements Iterable<T> {
         return sb.toString();
     }
 
+    /**
+     *
+     * @return iterator
+     */
+
     @Override
     public Iterator<T> iterator() {
-        return new Iterator<T>() {
-            private int marker;
-
-            /**
-             *
-             * @return true if collection to have next element or false if to have not
-             */
-
-            @Override
-            public boolean hasNext() {
-                return marker != size ? true : false;
-            }
-
-            /**
-             *
-             * @return element of collection with index of marker and increment marker
-             */
-
-            @Override
-            public T next() {
-                return data[marker++];
-            }
-        };
+        return new Itr();
     }
 }
