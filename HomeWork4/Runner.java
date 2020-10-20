@@ -1,6 +1,6 @@
 package HomeWork4;
 
-import java.util.Arrays;
+
 import java.util.Comparator;
 
 public class Runner {
@@ -72,6 +72,12 @@ public class Runner {
             }
         });
         System.out.println(example);
+        System.out.println();
+        System.out.println("\nTest static sort: ");
+        DataContainer<Integer> exampleStatic = new DataContainer<>(new Integer[] {1, 2, 3, 777, 3});
+        System.out.println(exampleStatic);
+        DataContainer.sort(exampleStatic);
+        System.out.println(exampleStatic);
     }
 }
 

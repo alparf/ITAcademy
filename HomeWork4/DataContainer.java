@@ -10,6 +10,10 @@ public class DataContainer<T> {
     private int size;
     private int capacity;
 
+    public static <C extends Comparable> void sort(DataContainer<C> container) {
+        Arrays.sort(container.getItems());
+    }
+
     private void increaseCapacity() {
         int newCapacity = this.size * 2;
         if (newCapacity == 0) {
