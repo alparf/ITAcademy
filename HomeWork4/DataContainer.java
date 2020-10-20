@@ -2,6 +2,7 @@ package HomeWork4;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class DataContainer<T> {
     private final int DEFAULT_SIZE = 10;
@@ -117,6 +118,10 @@ public class DataContainer<T> {
             }
         }
         return false;
+    }
+
+    public void sort(Comparator<T> comparator) {
+        Arrays.sort(this.data, comparator);
     }
 
     @Override
