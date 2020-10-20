@@ -78,6 +78,16 @@ public class Runner {
         System.out.println(exampleStatic);
         DataContainer.sort(exampleStatic);
         System.out.println(exampleStatic);
+        System.out.println("\nTest static comparator: ");
+        exampleStatic = new DataContainer<>(new Integer[] {1, 2, 3, 777, 3});
+        System.out.println(exampleStatic);
+        DataContainer.sort(exampleStatic, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+        System.out.println(exampleStatic);
     }
 }
 

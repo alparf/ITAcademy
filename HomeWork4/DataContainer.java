@@ -14,6 +14,10 @@ public class DataContainer<T> {
         Arrays.sort(container.getItems());
     }
 
+    public static  <C> void sort(DataContainer<C> container, Comparator<C> comparator) {
+        Arrays.sort(container.getItems(), comparator);
+    }
+
     private void increaseCapacity() {
         int newCapacity = this.size * 2;
         if (newCapacity == 0) {
