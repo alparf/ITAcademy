@@ -1,6 +1,5 @@
 package HomeWork4;
 
-
 import java.util.Comparator;
 
 public class Runner {
@@ -88,6 +87,11 @@ public class Runner {
             }
         });
         System.out.println(exampleStatic);
+        System.out.println("\nTest iterable: ");
+        exampleStatic = new DataContainer<>(new Integer[] {1, 2, 3, 777, 3});
+        for (Integer item: exampleStatic) {
+            System.out.print(item + " ");
+        }
     }
 }
 

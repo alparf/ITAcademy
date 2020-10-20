@@ -3,8 +3,9 @@ package HomeWork4;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 
-public class DataContainer<T> {
+public class DataContainer<T> implements Iterable<T> {
     private final int DEFAULT_CAPACITY = 10;
     private T[] data;
     private int size;
@@ -245,5 +246,32 @@ public class DataContainer<T> {
         }
         sb.append("]");
         return sb.toString();
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            private int marker;
+
+            /**
+             *
+             * @return true if collection to have next element or false if to have not
+             */
+
+            @Override
+            public boolean hasNext() {
+                return marker != size ? true : false;
+            }
+
+            /**
+             *
+             * @return element of collection with index of marker and increment marker
+             */
+
+            @Override
+            public T next() {
+                return data[marker++];
+            }
+        };
     }
 }
