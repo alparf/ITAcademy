@@ -147,7 +147,7 @@ public class DataContainer<T> implements Iterable<T> {
             this.increaseCapacity();
         }
         this.data[size++] = item;
-        return this.size;
+        return this.size - 1;
     }
 
     /**
