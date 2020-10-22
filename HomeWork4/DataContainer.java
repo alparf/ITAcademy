@@ -244,19 +244,12 @@ public class DataContainer<T> implements Iterable<T> {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         for (int i = 0; i < this.size; i++) {
-            if(null != this.data[i]) {
-                if(isPut) {
-                    sb.append(", ");
-                } else {
-                    isPut = true;
-                }
-                sb.append(this.data[i].toString());
+            if(isPut) {
+                sb.append(", ");
             } else {
-                if(isPut) {
-                    sb.append(", ");
-                }
-                sb.append("null");
+                isPut = true;
             }
+            sb.append(this.data[i]);
         }
         sb.append("]");
         return sb.toString();
