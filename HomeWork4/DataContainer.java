@@ -138,16 +138,17 @@ public class DataContainer<T> implements Iterable<T> {
         if(null == item) {
             return -1;
         }
-        int nullIndex = getFirstIndexOfNull();
-        if(nullIndex >= 0) {
-            this.data[nullIndex] = item;
-            return nullIndex;
+        int indexToAdd = getFirstIndexOfNull();
+        if(indexToAdd >= 0) {
+            this.data[indexToAdd] = item;
+            return indexToAdd;
         }
         if(!(this.size < this.capacity)) {
             this.increaseCapacity();
         }
-        this.data[size++] = item;
-        return this.size - 1;
+        indexToAdd = this.size++;
+        this.data[indexToAdd] = item;
+        return indexToAdd;
     }
 
     /**
@@ -240,14 +241,14 @@ public class DataContainer<T> implements Iterable<T> {
 
     @Override
     public String toString() {
-        boolean isPut = false;
+        boolean needSplit = false;
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         for (int i = 0; i < this.size; i++) {
-            if(isPut) {
+            if(needSplit) {
                 sb.append(", ");
             } else {
-                isPut = true;
+                needSplit = true;
             }
             sb.append(this.data[i]);
         }
