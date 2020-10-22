@@ -16,7 +16,7 @@ public class DataContainer<T> implements Iterable<T> {
 
         @Override
         public boolean hasNext() {
-            return marker != size ? true : false;
+            return marker != size;
         }
 
         @Override
@@ -205,7 +205,7 @@ public class DataContainer<T> implements Iterable<T> {
                 }
             }
             this.data = newArray;
-            this.size = this.size - 1;
+            this.size--;
             return true;
         }
         return false;
