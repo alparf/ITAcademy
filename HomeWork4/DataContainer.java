@@ -26,6 +26,47 @@ public class DataContainer<T> implements Iterable<T> {
     }
 
     /**
+     * Default constructor
+     */
+
+    public DataContainer() {
+        this.data = (T[]) new Object[this.DEFAULT_CAPACITY];
+        this.size = 0;
+        this.capacity = this.DEFAULT_CAPACITY;
+    }
+
+    /**
+     *
+     * @param data - Class<T>[] variable
+     * Constructor based on argument data
+     */
+
+    public DataContainer(T[] data) {
+        this();
+        if(null != data) {
+            this.size = data.length;
+            this.capacity = this.size;
+            this.data = data;
+        }
+    }
+
+    /**
+     *
+     * @param item - Class<T> variable
+     * Constructor based on argument item
+     */
+
+    public DataContainer(T item) {
+        this();
+        if(null != item) {
+            this.data = (T[]) Array.newInstance(item.getClass(), this.DEFAULT_CAPACITY);
+            this.data[0] = item;
+            this.size = 1;
+            this.capacity = this.DEFAULT_CAPACITY;
+        }
+    }
+
+    /**
      *
      * @param container DataContainer<C>
      * @param <C> C - generic Class implement Comparable interface
@@ -84,47 +125,6 @@ public class DataContainer<T> implements Iterable<T> {
             }
         }
         return -1;
-    }
-
-    /**
-     * Default constructor
-     */
-
-    public DataContainer() {
-        this.data = (T[]) new Object[this.DEFAULT_CAPACITY];
-        this.size = 0;
-        this.capacity = 10;
-    }
-
-    /**
-     *
-     * @param data - Class<T>[] variable
-     * Constructor based on argument data
-     */
-
-    public DataContainer(T[] data) {
-        this();
-        if(null != data) {
-            this.size = data.length;
-            this.capacity = this.size;
-            this.data = data;
-        }
-    }
-
-    /**
-     *
-     * @param item - Class<T> variable
-     * Constructor based on argument item
-     */
-
-    public DataContainer(T item) {
-        this();
-        if(null != item) {
-            this.data = (T[]) Array.newInstance(item.getClass(), this.DEFAULT_CAPACITY);
-            this.data[0] = item;
-            this.size = 1;
-            this.capacity = this.DEFAULT_CAPACITY;
-        }
     }
 
     /**
