@@ -1,5 +1,7 @@
 package HomeWork4;
 
+import HomeWork2.Task4.Sort;
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -33,7 +35,7 @@ public class DataContainer<T> implements Iterable<T> {
      */
 
     public static <C extends Comparable> void sort(DataContainer<C> container) {
-        Arrays.sort(container.getItems());
+        Sort.cocktailSort(container.getItems());
     }
 
     /**
@@ -45,7 +47,7 @@ public class DataContainer<T> implements Iterable<T> {
      */
 
     public static  <C> void sort(DataContainer<C> container, Comparator<C> comparator) {
-        Arrays.sort(container.getItems(), comparator);
+        Sort.cocktailSort(container.getItems(), comparator);
     }
 
     /**
@@ -235,7 +237,7 @@ public class DataContainer<T> implements Iterable<T> {
      */
 
     public void sort(Comparator<T> comparator) {
-        Arrays.sort(this.data, comparator);
+        Sort.cocktailSort(this.data, comparator);
     }
 
     @Override
