@@ -18,12 +18,53 @@ public class DataContainer<T> implements Iterable<T> {
 
         @Override
         public boolean hasNext() {
-            return marker != size ? true : false;
+            return marker != size;
         }
 
         @Override
         public T next() {
             return data[marker++];
+        }
+    }
+
+    /**
+     * Default constructor
+     */
+
+    public DataContainer() {
+        this.data = (T[]) new Object[this.DEFAULT_CAPACITY];
+        this.size = 0;
+        this.capacity = this.DEFAULT_CAPACITY;
+    }
+
+    /**
+     *
+     * @param data - Class<T>[] variable
+     * Constructor based on argument data
+     */
+
+    public DataContainer(T[] data) {
+        this();
+        if(null != data) {
+            this.size = data.length;
+            this.capacity = this.size;
+            this.data = data;
+        }
+    }
+
+    /**
+     *
+     * @param item - Class<T> variable
+     * Constructor based on argument item
+     */
+
+    public DataContainer(T item) {
+        this();
+        if(null != item) {
+            this.data = (T[]) Array.newInstance(item.getClass(), this.DEFAULT_CAPACITY);
+            this.data[0] = item;
+            this.size = 1;
+            this.capacity = this.DEFAULT_CAPACITY;
         }
     }
 
@@ -89,47 +130,6 @@ public class DataContainer<T> implements Iterable<T> {
     }
 
     /**
-     * Default constructor
-     */
-
-    public DataContainer() {
-        this.data = (T[]) new Object[this.DEFAULT_CAPACITY];
-        this.size = 0;
-        this.capacity = 10;
-    }
-
-    /**
-     *
-     * @param data - Class<T>[] variable
-     * Constructor based on argument data
-     */
-
-    public DataContainer(T[] data) {
-        this();
-        if(null != data) {
-            this.size = data.length;
-            this.capacity = this.size;
-            this.data = data;
-        }
-    }
-
-    /**
-     *
-     * @param item - Class<T> variable
-     * Constructor based on argument item
-     */
-
-    public DataContainer(T item) {
-        this();
-        if(null != item) {
-            this.data = (T[]) Array.newInstance(item.getClass(), this.DEFAULT_CAPACITY);
-            this.data[0] = item;
-            this.size = 1;
-            this.capacity = this.DEFAULT_CAPACITY;
-        }
-    }
-
-    /**
      *
      * @param item variable type of T
      * @return the position of element when it was to add or -1 if item == null
@@ -140,16 +140,17 @@ public class DataContainer<T> implements Iterable<T> {
         if(null == item) {
             return -1;
         }
-        int nullIndex = getFirstIndexOfNull();
-        if(nullIndex >= 0) {
-            this.data[nullIndex] = item;
-            return nullIndex;
+        int indexToAdd = getFirstIndexOfNull();
+        if(indexToAdd >= 0) {
+            this.data[indexToAdd] = item;
+            return indexToAdd;
         }
         if(!(this.size < this.capacity)) {
             this.increaseCapacity();
         }
-        this.data[size++] = item;
-        return this.size - 1;
+        indexToAdd = this.size++;
+        this.data[indexToAdd] = item;
+        return indexToAdd;
     }
 
     /**
@@ -206,7 +207,7 @@ public class DataContainer<T> implements Iterable<T> {
                 }
             }
             this.data = newArray;
-            this.size = this.size - 1;
+            this.size--;
             return true;
         }
         return false;
@@ -242,23 +243,16 @@ public class DataContainer<T> implements Iterable<T> {
 
     @Override
     public String toString() {
-        boolean isPut = false;
+        boolean needSplit = false;
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         for (int i = 0; i < this.size; i++) {
-            if(null != this.data[i]) {
-                if(isPut) {
-                    sb.append(", ");
-                } else {
-                    isPut = true;
-                }
-                sb.append(this.data[i].toString());
+            if(needSplit) {
+                sb.append(", ");
             } else {
-                if(isPut) {
-                    sb.append(", ");
-                }
-                sb.append("null");
+                needSplit = true;
             }
+            sb.append(this.data[i]);
         }
         sb.append("]");
         return sb.toString();
