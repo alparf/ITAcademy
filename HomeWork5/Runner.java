@@ -1,6 +1,7 @@
 package HomeWork5;
 
 import HomeWork5.Search.EasySearch;
+import HomeWork5.Search.RegExSearch;
 
 import static HomeWork5.Constants.FileConstant.*;
 import static HomeWork5.Constants.LineConstant.*;
@@ -122,7 +123,10 @@ public class Runner {
             }
         }
         System.out.println("\n\nEasySearch:");
-        String lookingFo = "он";
+        String lookingFo = "в";
         System.out.println(lookingFo + " = " + new EasySearch().search(fileToString(file), lookingFo));
+        System.out.println("\nRegExSearch:");
+        lookingFo = "не";
+        System.out.println(lookingFo + " = " + new RegExSearch().search(fileToString(file), lookingFo));
     }
 }
