@@ -1,5 +1,7 @@
 package HomeWork5;
 
+import HomeWork5.Search.EasySearch;
+
 import static HomeWork5.Constants.FileConstant.*;
 import static HomeWork5.Constants.LineConstant.*;
 
@@ -84,6 +86,23 @@ public class Runner {
         return topMap;
     }
 
+    private static String fileToString(File file) {
+        StringBuilder text = new StringBuilder();
+        if(file.exists() && file.isFile()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))){
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    text.append(line);
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return text.toString();
+    }
+
     public static void main(String[] args) {
         String absolutePath = new File("").getAbsolutePath();
         File file = new File(absolutePath + File.separator +
@@ -94,13 +113,16 @@ public class Runner {
         Map<String, Integer> map = getWordCounters(file);
         Map<Integer, StringBuilder> sortedMap = getTop(map);
         int counter = 0;
-        System.out.print("Top 10 words: ");
+        System.out.print("\nTop 10 words: ");
         for(Integer amount: sortedMap.keySet()) {
-            System.out.print(sortedMap.get(amount) + " = " + amount + "; ");
+            System.out.print(sortedMap.get(amount) + " = " + amount + " раз; ");
             counter++;
             if(counter >= 10) {
                 break;
             }
         }
+        System.out.println("\n\nEasySearch:");
+        String lookingFo = "он";
+        System.out.println(lookingFo + " = " + new EasySearch().search(fileToString(file), lookingFo));
     }
 }
