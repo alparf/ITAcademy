@@ -122,7 +122,7 @@ public class Runner {
                 break;
             }
         }
-        System.out.println("\n\nCase insensitive search:");
+        System.out.println("\n\nIgnore case search:");
         final String[] LOOKING_FOR = new String[] {"ВОЙНА", "И", "МИР"};
         final int WAR = 0, AND = 1, PEACE = 2;
         System.out.println("\nEasySearch:");
