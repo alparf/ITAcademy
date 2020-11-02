@@ -14,7 +14,7 @@ public class RegExSearch implements ISearchEngine {
         long counter = 0L;
         word = word.trim();
         word = SPACE + word + SPACE;
-        Pattern pattern = Pattern.compile(word);
+        Pattern pattern = Pattern.compile(word, 0);
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
             counter++;
