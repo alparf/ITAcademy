@@ -94,10 +94,11 @@ public class Runner {
         Map<String, Integer> map = getWordCounters(file);
         Map<Integer, StringBuilder> sortedMap = getTop(map);
         int counter = 0;
+        System.out.print("Top 10 words: ");
         for(Integer amount: sortedMap.keySet()) {
-            System.out.println(sortedMap.get(amount) + " = " + amount);
+            System.out.print(sortedMap.get(amount) + " = " + amount + "; ");
             counter++;
-            if(counter == 10) {
+            if(counter >= 10) {
                 break;
             }
         }
