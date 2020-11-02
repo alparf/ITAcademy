@@ -1,18 +1,31 @@
 package HomeWork5;
 
-import HomeWork5.Constants.FileConstant;
+import static HomeWork5.Constants.FileConstant.*;
 
-import java.io.File;
-import java.util.LinkedHashSet;
+import java.io.*;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Runner {
     public static void main(String[] args) {
-        File file = new File(FileConstant.PATH + File.separator + FileConstant.FILE_NAME);
-        System.out.println(file.getAbsolutePath());
-        System.out.println(file.exists());
-        if(file.exists()) {
+        String absolutePath = new File("").getAbsolutePath();
+        File file = new File(absolutePath + File.separator +
+                PATH[CATALOG] + File.separator +
+                PATH[SOURCE] + File.separator +
+                PATH[FILE]);
+        Set<String> words = new TreeSet<>();
+        if(file.exists() && file.isFile()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))){
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    System.out.println(line);
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        Set<String> words = new LinkedHashSet<>();
+
     }
 }
