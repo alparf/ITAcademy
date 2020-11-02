@@ -123,17 +123,18 @@ public class Runner {
             }
         }
         System.out.println("\n\nCase insensitive search:");
-        final String[] LOOKING_FOR = new String[] {"война", "и", "мир"};
+        final String[] LOOKING_FOR = new String[] {"ВОЙНА", "И", "МИР"};
         final int WAR = 0, AND = 1, PEACE = 2;
         System.out.println("\nEasySearch:");
+        String upperCaseText = fileToString(file).toUpperCase();
         EasySearch easySearch = new EasySearch();
-        System.out.println(LOOKING_FOR[WAR] + " = " + easySearch.search(fileToString(file).toUpperCase(), LOOKING_FOR[WAR].toUpperCase()));
-        System.out.println(LOOKING_FOR[AND] + " = " + easySearch.search(fileToString(file).toUpperCase(), LOOKING_FOR[AND].toUpperCase()));
-        System.out.println(LOOKING_FOR[PEACE] + " = " + easySearch.search(fileToString(file).toUpperCase(), LOOKING_FOR[PEACE].toUpperCase()));
+        System.out.println(LOOKING_FOR[WAR] + " = " + easySearch.search(upperCaseText, LOOKING_FOR[WAR]));
+        System.out.println(LOOKING_FOR[AND] + " = " + easySearch.search(upperCaseText, LOOKING_FOR[AND]));
+        System.out.println(LOOKING_FOR[PEACE] + " = " + easySearch.search(upperCaseText, LOOKING_FOR[PEACE]));
         System.out.println("\nRegExSearch:");
         RegExSearch regExSearch = new RegExSearch();
-        System.out.println(LOOKING_FOR[WAR] + " = " + regExSearch.search(fileToString(file).toUpperCase(), LOOKING_FOR[WAR].toUpperCase()));
-        System.out.println(LOOKING_FOR[AND] + " = " + regExSearch.search(fileToString(file).toUpperCase(), LOOKING_FOR[AND].toUpperCase()));
-        System.out.println(LOOKING_FOR[PEACE] + " = " + regExSearch.search(fileToString(file).toUpperCase(), LOOKING_FOR[PEACE].toUpperCase()));
+        System.out.println(LOOKING_FOR[WAR] + " = " + regExSearch.search(upperCaseText, LOOKING_FOR[WAR]));
+        System.out.println(LOOKING_FOR[AND] + " = " + regExSearch.search(upperCaseText, LOOKING_FOR[AND]));
+        System.out.println(LOOKING_FOR[PEACE] + " = " + regExSearch.search(upperCaseText, LOOKING_FOR[PEACE]));
     }
 }
