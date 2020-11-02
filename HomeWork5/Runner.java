@@ -128,13 +128,13 @@ public class Runner {
         System.out.println("\nEasySearch:");
         String upperCaseText = fileToString(file).toUpperCase();
         EasySearch easySearch = new EasySearch();
-        System.out.println(LOOKING_FOR[WAR] + " = " + easySearch.search(upperCaseText, LOOKING_FOR[WAR]));
-        System.out.println(LOOKING_FOR[AND] + " = " + easySearch.search(upperCaseText, LOOKING_FOR[AND]));
-        System.out.println(LOOKING_FOR[PEACE] + " = " + easySearch.search(upperCaseText, LOOKING_FOR[PEACE]));
+        System.out.println("война = " + easySearch.search(upperCaseText, LOOKING_FOR[WAR]));
+        System.out.println("и = " + easySearch.search(upperCaseText, LOOKING_FOR[AND]));
+        System.out.println("мир = " + easySearch.search(upperCaseText, LOOKING_FOR[PEACE]));
         System.out.println("\nRegExSearch:");
         RegExSearch regExSearch = new RegExSearch();
-        System.out.println(LOOKING_FOR[WAR] + " = " + regExSearch.search(upperCaseText, LOOKING_FOR[WAR]));
-        System.out.println(LOOKING_FOR[AND] + " = " + regExSearch.search(upperCaseText, LOOKING_FOR[AND]));
-        System.out.println(LOOKING_FOR[PEACE] + " = " + regExSearch.search(upperCaseText, LOOKING_FOR[PEACE]));
+        System.out.println("война = " + regExSearch.search(upperCaseText, LOOKING_FOR[WAR]));
+        System.out.println("и = " + regExSearch.search(upperCaseText, LOOKING_FOR[AND]));
+        System.out.println("мир = " + regExSearch.search(upperCaseText, LOOKING_FOR[PEACE]));
     }
 }
