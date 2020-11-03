@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.*;
 
 import static HomeWork5.Constants.LineConstant.*;
-import static HomeWork5.Constants.FileConstant.FILE_NOT_FOUND;
 
 public class TxtFileReader {
 
@@ -15,7 +14,7 @@ public class TxtFileReader {
         return line;
     }
 
-    public static Set<String> getWords(File file) throws FileNotFoundException {
+    public static Set<String> getWords(File file) {
         Set<String> setWords = new LinkedHashSet<>();
         if(file.exists() && file.isFile()) {
             try (FileReader fileReader = new FileReader(file);
@@ -35,13 +34,11 @@ public class TxtFileReader {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else {
-            throw new FileNotFoundException(FILE_NOT_FOUND);
         }
         return setWords;
     }
 
-    public static Map<String, Integer> getWordCounters(File file) throws FileNotFoundException {
+    public static Map<String, Integer> getWordCounters(File file) {
         Map<String, Integer> mapWords = new HashMap<>();
         if(file.exists() && file.isFile()) {
             try (FileReader fileReader = new FileReader(file);
@@ -65,8 +62,6 @@ public class TxtFileReader {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else {
-            throw new FileNotFoundException(FILE_NOT_FOUND);
         }
         return mapWords;
     }
@@ -90,7 +85,7 @@ public class TxtFileReader {
         return topMap;
     }
 
-    public static String fileToString(File file) throws FileNotFoundException {
+    public static String fileToString(File file) throws IllegalArgumentException {
         StringBuilder text = new StringBuilder();
         if(file.exists() && file.isFile()) {
             try (FileReader fileReader = new FileReader(file);
@@ -104,8 +99,6 @@ public class TxtFileReader {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else {
-            throw new FileNotFoundException(FILE_NOT_FOUND);
         }
         return text.toString();
     }
