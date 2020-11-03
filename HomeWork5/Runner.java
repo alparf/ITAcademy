@@ -13,10 +13,20 @@ public class Runner {
         String absolutePath = new File("").getAbsolutePath();
         File file = new File(absolutePath + File.separator +
                 CATALOG + File.separator + SOURCE + File.separator + FILE);
-        Set<String> set = TxtFileReader.getWords(file);
+        Set<String> set = null;
+        try {
+            set = TxtFileReader.getWords(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         System.out.println("word counter: " + set.size());
         System.out.println(set);
-        Map<String, Integer> map = TxtFileReader.getWordCounters(file);
+        Map<String, Integer> map = null;
+        try {
+            map = TxtFileReader.getWordCounters(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         Map<Integer, StringBuilder> sortedMap = TxtFileReader.getTop(map);
         int counter = 0;
         System.out.print("\nTop 10 words: ");
@@ -27,7 +37,12 @@ public class Runner {
                 break;
             }
         }
-        String text = TxtFileReader.fileToString(file);
+        String text = null;
+        try {
+            text = TxtFileReader.fileToString(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         System.out.println("\n\nEasySearch: ");
         EasySearch easySearch = new EasySearch();
         System.out.println("война = " + easySearch.search(text, "война"));

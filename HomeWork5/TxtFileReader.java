@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 import static HomeWork5.Constants.LineConstant.*;
-import static HomeWork5.Constants.LineConstant.DASH;
+import static HomeWork5.Constants.FileConstant.FILE_NOT_FOUND;
 
 public class TxtFileReader {
 
@@ -15,10 +15,11 @@ public class TxtFileReader {
         return line;
     }
 
-    public static Set<String> getWords(File file) {
+    public static Set<String> getWords(File file) throws FileNotFoundException {
         Set<String> setWords = new LinkedHashSet<>();
         if(file.exists() && file.isFile()) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(file))){
+            try (FileReader fileReader = new FileReader(file);
+                 BufferedReader reader = new BufferedReader(fileReader)){
                 String line;
                 while ((line = reader.readLine()) != null) {
                     line = punctuationMarkErase(line);
@@ -34,14 +35,17 @@ public class TxtFileReader {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else {
+            throw new FileNotFoundException(FILE_NOT_FOUND);
         }
         return setWords;
     }
 
-    public static Map<String, Integer> getWordCounters(File file) {
+    public static Map<String, Integer> getWordCounters(File file) throws FileNotFoundException {
         Map<String, Integer> mapWords = new HashMap<>();
         if(file.exists() && file.isFile()) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(file))){
+            try (FileReader fileReader = new FileReader(file);
+                 BufferedReader reader = new BufferedReader(fileReader)){
                 String line;
                 while ((line = reader.readLine()) != null) {
                     line = punctuationMarkErase(line);
@@ -61,6 +65,8 @@ public class TxtFileReader {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else {
+            throw new FileNotFoundException(FILE_NOT_FOUND);
         }
         return mapWords;
     }
@@ -84,10 +90,11 @@ public class TxtFileReader {
         return topMap;
     }
 
-    public static String fileToString(File file) {
+    public static String fileToString(File file) throws FileNotFoundException {
         StringBuilder text = new StringBuilder();
         if(file.exists() && file.isFile()) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(file))){
+            try (FileReader fileReader = new FileReader(file);
+                 BufferedReader reader = new BufferedReader(fileReader)){
                 String line;
                 while ((line = reader.readLine()) != null) {
                     text.append(line);
@@ -97,6 +104,8 @@ public class TxtFileReader {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else {
+            throw new FileNotFoundException(FILE_NOT_FOUND);
         }
         return text.toString();
     }
