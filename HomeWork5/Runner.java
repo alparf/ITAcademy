@@ -1,10 +1,9 @@
 package HomeWork5;
 
-import HomeWork5.Search.EasySearch;
-import HomeWork5.Search.RegExSearch;
-
 import static HomeWork5.Constants.FileConstant.*;
 
+import HomeWork5.Search.EasySearch;
+import HomeWork5.Search.RegExSearch;
 import java.io.*;
 import java.util.*;
 
@@ -39,7 +38,7 @@ public class Runner {
         final String[] LOOKING_FOR = new String[] {"война", "и", "мир"};
         final int WAR = 0, AND = 1, PEACE = 2;
         System.out.println("\nEasySearch:");
-        String lowerCaseText = TxtFileReader.fileToString(file).toLowerCase();
+        String lowerCaseText = text.toLowerCase();
         System.out.println("война = " + easySearch.search(lowerCaseText, LOOKING_FOR[WAR]));
         System.out.println("и = " + easySearch.search(lowerCaseText, LOOKING_FOR[AND]));
         System.out.println("мир = " + easySearch.search(lowerCaseText, LOOKING_FOR[PEACE]));

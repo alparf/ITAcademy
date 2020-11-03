@@ -3,7 +3,6 @@ package HomeWork5.Search;
 import static HomeWork5.Constants.LineConstant.*;
 
 import HomeWork5.Interface.ISearchEngine;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

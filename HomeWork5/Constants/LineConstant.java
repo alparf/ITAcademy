@@ -6,10 +6,11 @@ public class LineConstant {
     public static final String DASH = "--";
     public static final char EMPTY_CHAR;
     public static final String EMPTY_STRING;
-    public static final char[] PUNCTUATION_MARKS = new char[] {'.', ',',';', ':', '"', '(', ')', '!', '?'};
+    public static final char[] PUNCTUATION_MARKS;
 
     static {
         EMPTY_CHAR = (char) 0;
         EMPTY_STRING = new String();
+        PUNCTUATION_MARKS = new char[] {'.', ',',';', ':', '"', '(', ')', '!', '?'};
     }
 }
