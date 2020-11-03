@@ -7,12 +7,24 @@ import static HomeWork5.Constants.LineConstant.*;
 
 public class TxtFileReader {
 
+    /**
+     * replace all punctuation marks to space
+     * @param line
+     * @return String without punctuation marks
+     */
+
     private static String punctuationMarkErase(String line) {
         for (char mark: PUNCTUATION_MARKS) {
             line = line.replace(mark, CHAR_SPACE);
         }
         return line;
     }
+
+    /**
+     * Read file and return Set<String> of words
+     * @param file
+     * @return the set of words read in the file
+     */
 
     public static Set<String> getWords(File file) {
         Set<String> setWords = new LinkedHashSet<>();
@@ -37,6 +49,13 @@ public class TxtFileReader {
         }
         return setWords;
     }
+
+    /**
+     * Read file and return Map<K, V>  where K - word(String)
+     * adn V - counter(Integer) how many times does this word appear in the file
+     * @param file
+     * @return Map<String, Integer> (Map<word, counter>)
+     */
 
     public static Map<String, Integer> getWordCounters(File file) {
         Map<String, Integer> mapWords = new HashMap<>();
@@ -66,6 +85,13 @@ public class TxtFileReader {
         return mapWords;
     }
 
+    /**
+     * Parse Map<String, Integer> to Map<Integer, StringBuilder>
+     * where Integer - counter StringBuilder - list of words
+     * @param map
+     * @return sorted Map<Integer, StringBuilder> (Map<counter, words>)
+     */
+
     public static Map<Integer, StringBuilder> getTop(Map<String, Integer> map) {
         Map<Integer, StringBuilder> topMap = new TreeMap<>(new Comparator<Integer>() {
             @Override
@@ -85,7 +111,13 @@ public class TxtFileReader {
         return topMap;
     }
 
-    public static String fileToString(File file) throws IllegalArgumentException {
+    /**
+     * Parse file to String
+     * @param file
+     * @return String
+     */
+
+    public static String fileToString(File file) {
         StringBuilder text = new StringBuilder();
         if(file.exists() && file.isFile()) {
             try (FileReader fileReader = new FileReader(file);
