@@ -11,6 +11,12 @@ public class Sort {
         array[secondIndex] = buffer;
     }
 
+    private static void swap(double[] array, int firstIndex, int secondIndex) {
+        double buffer = array[firstIndex];
+        array[firstIndex] = array[secondIndex];
+        array[secondIndex] = buffer;
+    }
+
     public static <T extends Comparable> T[] cocktailSort(T[] array) {
         int size = array.length;
         int leftIndex = 0;
@@ -55,15 +61,12 @@ public class Sort {
     public static double[] bubbleSort(double[] array) {
         int size = array.length;
         double[] sortedArray = Arrays.copyOf(array, size);
-        double buffer;
         boolean isChange;
         for( int n = 1; n < size; n ++) {
             isChange = false;
             for (int i = 0; i < size - 1; i++) {
                 if (sortedArray[i] > sortedArray[i + 1]) {
-                    buffer = sortedArray[i];
-                    sortedArray[i] = sortedArray[i + 1];
-                    sortedArray[i + 1] = buffer;
+                    swap(sortedArray, i, i + 1);
                     isChange = true;
                 }
             }
@@ -77,7 +80,7 @@ public class Sort {
     public static double[] cocktailSort(double[] array) {
         Double doubleArray[] = new Double[array.length];
         for (int i = 0; i < array.length; i++) {
-            doubleArray[i] = array[i];
+            doubleArray[i] = Double.valueOf(array[i]);
         }
         cocktailSort(doubleArray);
         for (int i = 0; i < array.length; i++) {
