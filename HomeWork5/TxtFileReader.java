@@ -93,12 +93,7 @@ public class TxtFileReader {
      */
 
     public static Map<Integer, StringBuilder> getTop(Map<String, Integer> map) {
-        Map<Integer, StringBuilder> topMap = new TreeMap<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2 - o1;
-            }
-        });
+        Map<Integer, StringBuilder> topMap = new TreeMap<>(Collections.reverseOrder());
         int amount;
         for (String word: map.keySet()) {
             amount = map.get(word);
