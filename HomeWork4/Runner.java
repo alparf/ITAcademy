@@ -1,7 +1,5 @@
 package HomeWork4;
 
-import java.util.Comparator;
-
 public class Runner {
     public static void main(String[] args) {
         System.out.println("Test method: add(item)");
@@ -63,12 +61,8 @@ public class Runner {
         System.out.println("\nTest comparator: ");
         example = new DataContainer<>(new Integer[] {1, 2, 3, 777, 3});
         System.out.println(example);
-        example.sort(new Comparator<Number>() {
-            @Override
-            public int compare(Number o1, Number o2) {
-                double result = o2.doubleValue() - o1.doubleValue();
-                return (int) result;
-            }
+        example.sort((o1, o2) -> {
+            return (int) (o2.doubleValue() - o1.doubleValue());
         });
         System.out.println(example);
         System.out.println();
@@ -80,11 +74,8 @@ public class Runner {
         System.out.println("\nTest static comparator: ");
         exampleStatic = new DataContainer<>(new Integer[] {1, 2, 3, 777, 3});
         System.out.println(exampleStatic);
-        DataContainer.sort(exampleStatic, new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2 - o1;
-            }
+        DataContainer.sort(exampleStatic, (o1, o2) -> {
+            return o2 - o1;
         });
         System.out.println(exampleStatic);
         System.out.println("\nTest iterable: ");
