@@ -1,11 +1,24 @@
-package HomeWork5;
+package HomeWork6;
 
 import java.io.*;
 import java.util.*;
 
-import static HomeWork5.Constants.LineConstant.*;
+import static HomeWork6.Constants.LineConstant.*;
 
 public class TxtFileReader {
+
+    /**
+     * replace all punctuation marks to space
+     * @param line
+     * @return String without punctuation marks
+     */
+
+    private static String punctuationMarkErase(String line) {
+        for (char mark: PUNCTUATION_MARKS) {
+            line = line.replace(mark, CHAR_SPACE);
+        }
+        return line;
+    }
 
     /**
      * Read file and return Set<String> of words
@@ -20,9 +33,10 @@ public class TxtFileReader {
                  BufferedReader reader = new BufferedReader(fileReader)){
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    String[] words = line.split(SEPARATOR);
+                    line = punctuationMarkErase(line);
+                    String[] words = line.split(SPACE);
                     for(String word: words) {
-                        if(!word.isEmpty()) {
+                        if(!EMPTY_STRING.equals(word) && !DASH.equals(word)) {
                             setWords.add(word);
                         }
                     }
@@ -50,9 +64,10 @@ public class TxtFileReader {
                  BufferedReader reader = new BufferedReader(fileReader)){
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    String[] words = line.split(SEPARATOR);
+                    line = punctuationMarkErase(line);
+                    String[] words = line.split(SPACE);
                     for(String word: words) {
-                        if(!word.isEmpty()) {
+                        if(!EMPTY_STRING.equals(word) && !DASH.equals(word)) {
                             if (mapWords.containsKey(word)) {
                                 mapWords.put(word, mapWords.get(word) + 1);
                             } else {

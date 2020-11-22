@@ -1,9 +1,11 @@
-package HomeWork5;
+package HomeWork6;
 
 import static HomeWork5.Constants.FileConstant.*;
 
 import HomeWork5.Search.EasySearch;
 import HomeWork5.Search.RegExSearch;
+import HomeWork5.TxtFileReader;
+
 import java.io.*;
 import java.util.*;
 
@@ -26,6 +28,7 @@ public class Runner {
                 CATALOG + File.separator + SOURCE + File.separator + FILE);
         Set<String> set = TxtFileReader.getWords(file);
         System.out.println("word counter: " + set.size());
+        System.out.println(set);
         Map<String, Integer> map = TxtFileReader.getWordCounters(file);
         Map<Integer, StringBuilder> sortedMap = TxtFileReader.getTop(map);
         System.out.print("\nTop words: ");
