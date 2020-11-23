@@ -51,11 +51,11 @@ public class Runner {
         //Обычным классом
         counter = 0;
         final ISearchEngine regExSearch = new RegExSearch();
+        Callable<Long> task;
         try {
-            SearchTask[] tasks = new SearchTask[parts];
             for(int i = 0; i < parts; i++) {
-                tasks[i] = new SearchTask(regExSearch, text[i], LOOKING_FOR[WAR]);
-                counter += tasks[i].call();
+                task = new SearchTask(regExSearch, text[i], LOOKING_FOR[WAR]);
+                counter += task.call();
             }
         } catch (Exception e) {
             e.printStackTrace();
