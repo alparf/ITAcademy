@@ -3,6 +3,7 @@ package HomeWork6;
 import HomeWork6.Interface.ISearchEngine;
 import HomeWork6.Search.EasySearch;
 import HomeWork6.Search.RegExSearch;
+import HomeWork6.Search.SearchTask;
 
 import static HomeWork6.Constants.FileConstant.*;
 

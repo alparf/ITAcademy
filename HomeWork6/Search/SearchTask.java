@@ -1,4 +1,4 @@
-package HomeWork6;
+package HomeWork6.Search;
 
 import HomeWork6.Interface.ISearchEngine;
 
