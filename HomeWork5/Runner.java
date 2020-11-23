@@ -43,12 +43,12 @@ public class Runner {
         final int WAR = 0, AND = 1, PEACE = 2;
         System.out.println("\nEasySearch:");
         String lowerCaseText = text.toLowerCase();
-        System.out.println("война = " + easySearch.search(lowerCaseText, LOOKING_FOR[WAR]));
-        System.out.println("и = " + easySearch.search(lowerCaseText, LOOKING_FOR[AND]));
+        System.out.println("война = " + easySearch.search(lowerCaseText, LOOKING_FOR[WAR].toLowerCase()));
+        System.out.println("и = " + easySearch.search(lowerCaseText, LOOKING_FOR[AND].toLowerCase()));
         System.out.println("мир = " + easySearch.search(lowerCaseText, LOOKING_FOR[PEACE]));
         System.out.println("\nRegExSearch:");
-        System.out.println("война = " + regExSearch.search(lowerCaseText, LOOKING_FOR[WAR]));
-        System.out.println("и = " + regExSearch.search(lowerCaseText, LOOKING_FOR[AND]));
-        System.out.println("мир = " + regExSearch.search(lowerCaseText, LOOKING_FOR[PEACE]));
+        System.out.println("война = " + regExSearch.search(lowerCaseText, LOOKING_FOR[WAR].toLowerCase()));
+        System.out.println("и = " + regExSearch.search(lowerCaseText, LOOKING_FOR[AND].toLowerCase()));
+        System.out.println("мир = " + regExSearch.search(lowerCaseText, LOOKING_FOR[PEACE].toLowerCase()));
     }
 }

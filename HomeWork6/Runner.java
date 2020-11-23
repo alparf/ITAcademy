@@ -1,12 +1,12 @@
 package HomeWork6;
 
+import static HomeWork6.Beans.CaseFlag.*;
+import static HomeWork6.Constants.FileConstant.*;
+
 import HomeWork6.Interface.ISearchEngine;
 import HomeWork6.Search.EasySearch;
 import HomeWork6.Search.RegExSearch;
 import HomeWork6.Search.SearchTask;
-
-import static HomeWork6.Constants.FileConstant.*;
-
 import java.io.*;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -72,9 +72,12 @@ public class Runner {
         ExecutorService service = Executors.newFixedThreadPool(parts);
         try {
             for(int i = 0; i < parts; i++) {
-                warFutures.add(service.submit(new SearchTask(regExSearch, text[i].toLowerCase(), LOOKING_FOR[WAR])));
-                andFutures.add(service.submit(new SearchTask(regExSearch, text[i].toLowerCase(), LOOKING_FOR[AND])));
-                peaceFutures.add(service.submit(new SearchTask(regExSearch, text[i].toLowerCase(), LOOKING_FOR[PEACE])));
+                warFutures.add(service.submit(new SearchTask(regExSearch, text[i],
+                        LOOKING_FOR[WAR], IGNORE_CASE)));
+                andFutures.add(service.submit(new SearchTask(regExSearch, text[i],
+                        LOOKING_FOR[AND], IGNORE_CASE)));
+                peaceFutures.add(service.submit(new SearchTask(regExSearch, text[i],
+                        LOOKING_FOR[PEACE], IGNORE_CASE)));
             }
             System.out.println(LOOKING_FOR[WAR] + " = " + getCounter(warFutures));
             System.out.println(LOOKING_FOR[AND] + " = " + getCounter(andFutures));

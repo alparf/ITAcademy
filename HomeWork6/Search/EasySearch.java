@@ -11,7 +11,7 @@ public class EasySearch implements ISearchEngine {
         long counter = 0L;
         int lastIndex = 0;
         int indexOf;
-        if((null != word) && (null != text)) {
+        if ((null != word) && (null != text)) {
             word = word.trim();
             word = SPACE + word + SPACE;
             while ((indexOf = text.indexOf(word, lastIndex)) != -1) {
