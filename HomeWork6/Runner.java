@@ -1,8 +1,8 @@
 package HomeWork6;
 
-import static HomeWork6.Beans.CaseFlag.*;
 import static HomeWork6.Constants.FileConstant.*;
 
+import HomeWork6.Beans.SearchCaseIgnore;
 import HomeWork6.Interface.ISearchEngine;
 import HomeWork6.Search.EasySearch;
 import HomeWork6.Search.RegExSearch;
@@ -70,14 +70,12 @@ public class Runner {
         List<Future<Long>> andFutures = new LinkedList<>();
         List<Future<Long>> peaceFutures = new LinkedList<>();
         ExecutorService service = Executors.newFixedThreadPool(parts);
+        ISearchEngine searchEngine = new SearchCaseIgnore(regExSearch);
         try {
             for(int i = 0; i < parts; i++) {
-                warFutures.add(service.submit(new SearchTask(regExSearch, text[i],
-                        LOOKING_FOR[WAR], IGNORE_CASE)));
-                andFutures.add(service.submit(new SearchTask(regExSearch, text[i],
-                        LOOKING_FOR[AND], IGNORE_CASE)));
-                peaceFutures.add(service.submit(new SearchTask(regExSearch, text[i],
-                        LOOKING_FOR[PEACE], IGNORE_CASE)));
+                warFutures.add(service.submit(new SearchTask(searchEngine, text[i], LOOKING_FOR[WAR])));
+                andFutures.add(service.submit(new SearchTask(searchEngine, text[i], LOOKING_FOR[AND])));
+                peaceFutures.add(service.submit(new SearchTask(searchEngine, text[i], LOOKING_FOR[PEACE])));
             }
             System.out.println(LOOKING_FOR[WAR] + " = " + getCounter(warFutures));
             System.out.println(LOOKING_FOR[AND] + " = " + getCounter(andFutures));

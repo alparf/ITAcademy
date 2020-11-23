@@ -2,8 +2,11 @@ package HomeWork5;
 
 import static HomeWork5.Constants.FileConstant.*;
 
+import HomeWork5.Beans.SearchCaseIgnore;
 import HomeWork5.Search.EasySearch;
 import HomeWork5.Search.RegExSearch;
+import HomeWork5.Interface.ISearchEngine;
+
 import java.io.*;
 import java.util.*;
 
@@ -41,14 +44,15 @@ public class Runner {
         System.out.println("\nIgnore case search:");
         final String[] LOOKING_FOR = new String[] {"война", "и", "мир"};
         final int WAR = 0, AND = 1, PEACE = 2;
+        ISearchEngine searchEngine = new SearchCaseIgnore(easySearch);
         System.out.println("\nEasySearch:");
-        String lowerCaseText = text.toLowerCase();
-        System.out.println("война = " + easySearch.search(lowerCaseText, LOOKING_FOR[WAR].toLowerCase()));
-        System.out.println("и = " + easySearch.search(lowerCaseText, LOOKING_FOR[AND].toLowerCase()));
-        System.out.println("мир = " + easySearch.search(lowerCaseText, LOOKING_FOR[PEACE]));
+        System.out.println("война = " + searchEngine.search(text, LOOKING_FOR[WAR]));
+        System.out.println("и = " + searchEngine.search(text, LOOKING_FOR[AND]));
+        System.out.println("мир = " + searchEngine.search(text, LOOKING_FOR[PEACE]));
         System.out.println("\nRegExSearch:");
-        System.out.println("война = " + regExSearch.search(lowerCaseText, LOOKING_FOR[WAR].toLowerCase()));
-        System.out.println("и = " + regExSearch.search(lowerCaseText, LOOKING_FOR[AND].toLowerCase()));
-        System.out.println("мир = " + regExSearch.search(lowerCaseText, LOOKING_FOR[PEACE].toLowerCase()));
+        searchEngine = new SearchCaseIgnore(regExSearch);
+        System.out.println("война = " + searchEngine.search(text, LOOKING_FOR[WAR]));
+        System.out.println("и = " + searchEngine.search(text, LOOKING_FOR[AND]));
+        System.out.println("мир = " + searchEngine.search(text, LOOKING_FOR[PEACE]));
     }
 }
