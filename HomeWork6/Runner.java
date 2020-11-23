@@ -77,6 +77,7 @@ public class Runner {
                 andFutures.add(service.submit(new SearchTask(searchEngine, text[i], LOOKING_FOR[AND])));
                 peaceFutures.add(service.submit(new SearchTask(searchEngine, text[i], LOOKING_FOR[PEACE])));
             }
+            service.shutdown();
             System.out.println(LOOKING_FOR[WAR] + " = " + getCounter(warFutures));
             System.out.println(LOOKING_FOR[AND] + " = " + getCounter(andFutures));
             System.out.println(LOOKING_FOR[PEACE] + " = " + getCounter(peaceFutures));
@@ -85,6 +86,5 @@ public class Runner {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        service.shutdown();
     }
 }
