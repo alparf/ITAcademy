@@ -40,9 +40,7 @@ public class Runner {
         try {
             for(int i = 0; i < parts; i++) {
                 int index = i;
-                Callable<Long> callable = () -> {
-                    return easySearch.search(text[index], LOOKING_FOR[WAR]);
-                };
+                Callable<Long> callable = () -> easySearch.search(text[index], LOOKING_FOR[WAR]);
                 counter += callable.call();
             }
         } catch (Exception e) {
