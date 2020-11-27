@@ -23,7 +23,15 @@ public class NBRBLoader extends SiteLoader {
      */
     @Override
     protected double handle(String content, SiteLoader.Currency currencyName) {
-        //TODO дописываем код сюда
-        return 0;
+        final String CUR_OFFICIAL_RATE = "\"Cur_OfficialRate\":";
+        int firstIndex = content.indexOf(CUR_OFFICIAL_RATE) + CUR_OFFICIAL_RATE.length();
+        int lastIndex = content.length() - 2;
+        double value = 0;
+        try {
+           value = Double.parseDouble(content.substring(firstIndex, lastIndex));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return value;
     }
 }
