@@ -3,6 +3,7 @@ package HomeWork7;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.ref.SoftReference;
 import java.util.Scanner;
 
 public class Test {
@@ -23,7 +24,11 @@ public class Test {
                 file = new File(filePath, FILE_NAME);
             }
             if(!file.exists()) {
-                file.createNewFile();
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    throw new IllegalArgumentException(filePath);
+                }
             }
             if(file.exists() && file.isFile()) {
                 try (FileWriter fileWriter = new FileWriter(file)) {
@@ -41,6 +46,8 @@ public class Test {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid file path!");
         }
         System.out.println(SiteLoader.Currency.EUR + " : " + loader.load(SiteLoader.Currency.EUR));
         System.out.println(SiteLoader.Currency.RUB + " : " + loader.load(SiteLoader.Currency.RUB));
