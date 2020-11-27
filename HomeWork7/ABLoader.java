@@ -25,7 +25,7 @@ public class ABLoader extends SiteLoader {
                 matcher = pattern.matcher(item);
                 firstIndex = item.indexOf(BUY_RATE_MARKER) + BUY_RATE_MARKER.length();
                 if(matcher.find(firstIndex)) {
-                    value = Double.valueOf(matcher.group());
+                    value = Double.parseDouble(matcher.group());
                 }
             }
         }

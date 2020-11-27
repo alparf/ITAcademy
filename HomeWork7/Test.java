@@ -3,6 +3,8 @@ package HomeWork7;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Test {
@@ -16,7 +18,8 @@ public class Test {
         String currencyUsd = SiteLoader.Currency.USD + " : " + loader.load(SiteLoader.Currency.USD);
         System.out.println(currencyEur);
         System.out.println(currencyRub);
-        System.out.println(currencyUsd);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("[dd.MM.yyyy]");
+        String currentDate = simpleDateFormat.format(new Date());
         final String FILE_NAME = "Currency.txt";
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Enter file path to save data or press \"Enter to save in root");
@@ -36,13 +39,13 @@ public class Test {
                 }
             }
             if(file.exists() && file.isFile()) {
-                try (FileWriter fileWriter = new FileWriter(file)) {
+                try (FileWriter fileWriter = new FileWriter(file, true)) {
                     fileWriter
-                            .append(currencyEur)
+                            .append(currentDate + " ").append(currencyEur)
                             .append(System.lineSeparator())
-                            .append(currencyRub)
+                            .append(currentDate + " ").append(currencyRub)
                             .append(System.lineSeparator())
-                            .append(currencyUsd)
+                            .append(currentDate + " ").append(currencyUsd)
                             .append(System.lineSeparator());
                 }
             }
