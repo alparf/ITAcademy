@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
-        printRates(Loaders.newNBRBLoader());
+        printRates(Loaders.newABLoader());
     }
 
     public static void printRates(SiteLoader loader){
