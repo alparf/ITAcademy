@@ -18,6 +18,7 @@ public class Test {
         String currencyUsd = SiteLoader.Currency.USD + " : " + loader.load(SiteLoader.Currency.USD);
         System.out.println(currencyEur);
         System.out.println(currencyRub);
+        System.out.println(currencyUsd);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("[dd.MM.yyyy]");
         String currentDate = simpleDateFormat.format(new Date());
         final String FILE_NAME = "Currency.txt";
