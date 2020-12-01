@@ -1,4 +1,4 @@
-package HomeWork7;
+package HomeWork7.Loaders;
 
 /**
  * Загрузчик курса с сайта Нац. Банка

@@ -1,6 +1,6 @@
-package HomeWork7;
+package HomeWork7.Loaders;
 
-public class Loaders {
+public class LoaderFactory {
     public static SiteLoader newABLoader() {
         return new ABLoader();
     }
@@ -9,5 +9,5 @@ public class Loaders {
         return new NBRBLoader();
     }
 
-    private Loaders() {}
+    private LoaderFactory() {}
 }

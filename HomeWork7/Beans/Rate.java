@@ -1,15 +1,13 @@
 package HomeWork7.Beans;
 
-import HomeWork7.SiteLoader;
-
 import java.util.Date;
 
 public class Rate {
     private double value;
-    private SiteLoader.Currency currency;
+    private CurrencyISO currency;
     private Date date;
 
-    public Rate(double value, SiteLoader.Currency currency, Date date) {
+    public Rate(double value, CurrencyISO currency, Date date) {
         this.value = value;
         this.currency = currency;
         this.date = date;
@@ -23,11 +21,11 @@ public class Rate {
         this.value = value;
     }
 
-    public SiteLoader.Currency getCurrency() {
+    public CurrencyISO getCurrency() {
         return currency;
     }
 
-    public void setCurrency(SiteLoader.Currency currency) {
+    public void setCurrency(CurrencyISO currency) {
         this.currency = currency;
     }
 

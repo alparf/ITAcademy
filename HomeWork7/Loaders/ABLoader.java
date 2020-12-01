@@ -1,4 +1,4 @@
-package HomeWork7;
+package HomeWork7.Loaders;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -1,4 +1,4 @@
-package HomeWork7;
+package HomeWork7.Loaders;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
