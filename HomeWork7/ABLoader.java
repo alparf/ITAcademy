@@ -1,9 +1,7 @@
 package HomeWork7;
 
-import HomeWork7.Beans.Rate;
-import HomeWork7.Interfaces.IParser;
-
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ABLoader extends SiteLoader {
 
@@ -15,13 +13,22 @@ public class ABLoader extends SiteLoader {
 
     @Override
     protected double handle(String content, Currency currencyName) {
-        IParser parser = new ABParser();
-        List<Rate> rateList = parser.getRate(content, currencyName);
-        for(Rate rate: rateList) {
-            if(rate.getSellIso() == currencyName) {
-                return rate.getBuyRate();
+        String[] rates = content.split("},\\{");
+        final String MARKER = "\"buyIso\":\"BYN\"";
+        final String BUY_RATE_MARKER = "\"buyRate\":";
+        Pattern pattern = Pattern.compile("\\d+.\\d+");
+        Matcher matcher;
+        int firstIndex;
+        double value = 0;
+        for(String item: rates) {
+            if(item.contains(MARKER) && item.contains(currencyName.toString())) {
+                matcher = pattern.matcher(item);
+                firstIndex = item.indexOf(BUY_RATE_MARKER) + BUY_RATE_MARKER.length();
+                if(matcher.find(firstIndex)) {
+                    value = Double.parseDouble(matcher.group());
+                }
             }
         }
-        return 0;
+        return value;
     }
 }

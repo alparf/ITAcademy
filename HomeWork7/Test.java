@@ -9,10 +9,10 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
-        printRates(Loaders.newABLoader());
+        saveRates(Loaders.newABLoader());
     }
 
-    public static void printRates(SiteLoader loader){
+    public static void saveRates(SiteLoader loader){
         String currencyEur = SiteLoader.Currency.EUR + " : " + loader.load(SiteLoader.Currency.EUR);
         String currencyRub = SiteLoader.Currency.RUB + " : " + loader.load(SiteLoader.Currency.RUB);
         String currencyUsd = SiteLoader.Currency.USD + " : " + loader.load(SiteLoader.Currency.USD);
