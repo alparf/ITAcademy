@@ -1,22 +1,24 @@
 package HomeWork7.Beans;
 
+import HomeWork7.SiteLoader;
+
 import java.util.Date;
 
 public class Rate {
     private double sellRate;
     private double buyRate;
-    private Currency sellIso;
-    private Currency buyIso;
-    private int quantity;
+    private SiteLoader.Currency sellIso;
     private Date date;
 
-    public Rate(double sellRate, double buyRate, Currency sellIso, Currency buyIso, int quantity, Date date) {
+    public Rate(double sellRate, double buyRate, SiteLoader.Currency sellIso, Date date) {
         this.sellRate = sellRate;
         this.buyRate = buyRate;
         this.sellIso = sellIso;
-        this.buyIso = buyIso;
-        this.quantity = quantity;
         this.date = date;
+    }
+
+    public Rate() {
+
     }
 
     public double getSellRate() {
@@ -35,28 +37,12 @@ public class Rate {
         this.buyRate = buyRate;
     }
 
-    public Currency getSellIso() {
+    public SiteLoader.Currency getSellIso() {
         return sellIso;
     }
 
-    public void setSellIso(Currency sellIso) {
+    public void setSellIso(SiteLoader.Currency sellIso) {
         this.sellIso = sellIso;
-    }
-
-    public Currency getBuyIso() {
-        return buyIso;
-    }
-
-    public void setBuyIso(Currency buyIso) {
-        this.buyIso = buyIso;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 
     public Date getDate() {
@@ -73,8 +59,6 @@ public class Rate {
                 "sellRate=" + sellRate +
                 ", buyRate=" + buyRate +
                 ", sellIso=" + sellIso +
-                ", buyIso=" + buyIso +
-                ", quantity=" + quantity +
                 ", date=" + date +
                 '}';
     }
