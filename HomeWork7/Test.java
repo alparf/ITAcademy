@@ -3,7 +3,7 @@ package HomeWork7;
 import HomeWork7.Beans.CurrencyISO;
 import HomeWork7.Beans.Rate;
 import HomeWork7.Dao.RateDAO;
-import HomeWork7.Loaders.LoaderFactory;
+import HomeWork7.Factorys.LoaderFactory;
 import HomeWork7.Loaders.SiteLoader;
 import HomeWork7.interfaces.IRateDAO;
 
