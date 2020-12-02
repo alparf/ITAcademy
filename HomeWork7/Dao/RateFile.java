@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
-public class RateDAO implements IRateDAO {
+public class RateFile implements IRateDAO {
     @Override
     public void save(List<Rate> rates) {
         final String FILE_NAME = "Currency.txt";

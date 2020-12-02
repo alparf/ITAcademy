@@ -2,7 +2,7 @@ package HomeWork7;
 
 import HomeWork7.Beans.CurrencyISO;
 import HomeWork7.Beans.Rate;
-import HomeWork7.Dao.RateDAO;
+import HomeWork7.Dao.RateFile;
 import HomeWork7.Factorys.LoaderFactory;
 import HomeWork7.Loaders.SiteLoader;
 import HomeWork7.interfaces.IRateDAO;
@@ -28,7 +28,7 @@ public class Test {
         for(Rate rate: rates) {
             System.out.println(rate.getCurrency() + " " + rate.getValue());
         }
-        IRateDAO rateDAO = new RateDAO();
+        IRateDAO rateDAO = new RateFile();
         rateDAO.save(rates);
     }
 }
