@@ -1,4 +1,4 @@
-package HomeWork7.Factorys;
+package HomeWork7.Factories;
 
 import HomeWork7.Loaders.ABLoader;
 import HomeWork7.Loaders.NBRBLoader;
